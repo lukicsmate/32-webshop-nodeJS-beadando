@@ -7,6 +7,7 @@ import getVasarlok from './data/vasarlok/getVasarlok.js';
 import getVasarlokRendeleseById from './data/vasarlok/getVasarlokRendeleseById.js';
 import sosemRendeltTermekek from './data/termekek/sosemRendeltTermekek.js';
 import statisztikaHavi from './data/statisztika/statisztikaHavi.js';
+import statisztikaKategoria from './data/statisztika/statisztikaKategoria.js';
 
 const app = express();
 app.use(express.json());;
@@ -26,6 +27,8 @@ app.use(getVasarlokRendeleseById);
 app.use('/termekek/sosem-rendelt', sosemRendeltTermekek);
 
 app.use('/statisztika/havi', statisztikaHavi);
+
+app.use('/statisztika/kategoria', statisztikaKategoria);
 
 app.listen(port, () => {
     console.log(`server is running on http://localhost:${port}`);
