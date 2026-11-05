@@ -21,6 +21,10 @@ getRendeles.get ('/', async (req, res) => {
     `;
     let [getTetelekRows] = await db.query(getTetelek);
 
+    if(isNaN(Date.parse(tol)) || isNaN(Date.parse(ig))) {
+        return res.status(400).json({message: "Hibás dátum formátum"});
+    }
+
     getTetelekRows = getTetelekRows.filter(row =>
         (!statusz ||  row.statusz == statusz)&&
         (!tol || row.datum >= tol)&&
